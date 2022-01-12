@@ -1,0 +1,140 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+h1 {
+  margin: 0;
+}
+/* For layout checking*/
+div, section, header, footer {
+  border: 1px solid black;
+}
+
+#logo {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+#tab {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  width: 500px;
+  margin: auto;
+}
+
+#tab .li:hover {
+  cursor: pointer;
+  color: blue;
+
+  transition: color 0.5s;
+  -webkit-transition: color 0.5s;
+}
+/*
+  text-orientation not work in IE,
+  ref: https://stackoverflow.com/questions/17286651/vertical-text-in-ie7-ie8-ie9-and-ie10-with-css-only
+*/
+#sidebtn {
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+
+  position: fixed;
+  top: 500px;
+  right: 0;
+}
+#sidebtn:hover {
+  cursor: pointer;
+  color: blue;
+
+  transition: color 0.5s;
+  -webkit-transition: color 0.5s;
+}
+
+#section1 {
+  height: 400px;
+  text-align: center;
+  
+  background-size: cover;
+  width: 100%;
+  min-width: 500px;
+
+}
+
+#section2 {
+  height: 50px;
+}
+
+#section3 {
+  width: 100%;
+  min-width: 500px;
+  height: 300px;
+
+  display: flex;
+  flex-direction: row;
+}
+#section3 div {
+  width: 50%;
+}
+
+#section4 {
+  width: 100%;
+  min-width: 500px;
+  height: 400px;
+
+  display: flex;
+  flex-direction: row;
+}
+#section4 .left {
+  width: 30%;
+}
+#section4 .right {
+  flex-direction: column;
+  width: 70%;
+}
+#section4 .right .img {
+  height: 300px;
+}
+#section4 .right .text {
+  height: 100px;
+}
+
+#section5 {
+  width: 100%;
+  min-width: 500px;
+  height: 300px;
+
+  display: flex;
+  flex-direction: row;
+}
+#section5 div {
+  width: 50%;
+}
+
+#section6 {
+  width: 100%;
+  min-width: 500px;
+  height: 300px;
+
+  display: flex;
+  flex-direction: row;
+}
+#section6 div {
+  width: 33%;
+  border: 1px solid black;
+  height: 300px;
+}
+
+footer {
+  width: 100%;
+  min-width: 300px;
+  height: 300px;
+}
