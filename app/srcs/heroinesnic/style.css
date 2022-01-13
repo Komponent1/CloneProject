@@ -63,6 +63,7 @@ header {
   height: 400px;
   text-align: center;
   
+  background-image: url("./testimg.png");
   background-size: cover;
   width: 100%;
   min-width: 500px;

@@ -13,7 +13,7 @@ import SectionSix from './section_six';
 import Footer from './footer';
 
 const Main: React.FC = () => (
-  <div class='heroinesic'>
+  <div className='heroinesic'>
     <main>
       <SectionOne />
       <SectionTwo />
