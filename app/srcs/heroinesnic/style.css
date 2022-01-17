@@ -21,6 +21,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
+  transition: top 1s ease;
 }
 
 #tab {
@@ -67,11 +68,37 @@ header {
   background-size: cover;
   width: 100%;
   min-width: 500px;
-
+}
+#section1 .title{
+  margin-top: 50px;
+  font-size: 50px;
 }
 
 #section2 {
+  position: relative;
   height: 50px;
+
+  overflow: hidden;
+  white-space: nowrap;
+}
+@keyframes move {
+  from {
+    left: -30%;
+  } to {
+    left: 100%;
+  }
+}
+
+#section2 .first {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: 8s linear move infinite;
+}
+#section2 .second {
+  position: absolute;
+  top: 0;
+  left: 100%;
 }
 
 #section3 {
@@ -82,10 +109,23 @@ header {
   display: flex;
   flex-direction: row;
 }
-#section3 div {
+#section3 .img {
+  width: 50%;
+  background-image: url("./testimg.png");
+  background-size: cover;
+}
+#section3 .text {
+  display: flex;
+  flex-direction: row;
+
   width: 50%;
 }
+#section3 .text .margin {
+  width: 20%;
+  min-width: 50px;
 
+  border: none;
+}
 #section4 {
   width: 100%;
   min-width: 500px;
@@ -96,12 +136,20 @@ header {
 }
 #section4 .left {
   width: 30%;
+  text-align: center;
+}
+#section4 .left button {
+  display: block;
+  margin: auto;
 }
 #section4 .right {
   flex-direction: column;
   width: 70%;
 }
 #section4 .right .img {
+  background-image: url("./testimg.png");
+  background-size: cover;
+
   height: 300px;
 }
 #section4 .right .text {

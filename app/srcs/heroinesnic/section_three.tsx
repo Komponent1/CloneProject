@@ -2,11 +2,14 @@ import React from 'react';
 
 const SectionThree: React.FC = () => (
   <section id="section3">
-    <div>
+    <div className="img">
       
     </div>
-    <div>
+    <div className="text">
+      <div className="margin">
 
+      </div>
+      <p>This is Text</p>
     </div>
   </section>
 );

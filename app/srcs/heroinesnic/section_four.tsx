@@ -2,14 +2,15 @@ import React from 'react'
 
 const SectionFour: React.FC = () => (
   <section id="section4">
-    <div class="left">
-
+    <div className="left">
+      Text
+      <button onClick={() => {}}>Button</button>
     </div>
-    <div class="right">
-      <div class="img">
+    <div className="right">
+      <div className="img">
 
       </div>
-      <div class="text">
+      <div className="text">
 
       </div>
     </div>
