@@ -2,6 +2,8 @@
 
 ### Structure
 
+![img](https://github.com/Komponent1/CloneProject/blob/main/app/srcs/heroinesnic/structure.png)
+
 ### Need component
 
 1. LOGO
