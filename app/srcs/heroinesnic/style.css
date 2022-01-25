@@ -164,8 +164,50 @@ header {
   display: flex;
   flex-direction: row;
 }
-#section5 div {
+#section5 .left {
   width: 50%;
+}
+#section5 .right {
+  width: 50%;
+}
+.carousel {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.carousel .wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.carousel .wrapper .item {
+  --trans: 0;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  opacity: var(--trans);
+  transition: opacity 1s;
+}
+.carousel .btn {
+  position: absolute;
+  width: 100%;
+  top: 200px;
+  text-align: center;
+}
+.carousel button {
+  width: 10px;
+  height: 10px;
+  margin: 10px;
+  border: none;
+  background-color: black;
+  border-radius: 10px;
+  padding: 0;
+}
+.carousel .select {
+  background: none;
+  border: 1px solid black;
 }
 
 #section6 {
