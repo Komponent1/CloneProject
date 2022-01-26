@@ -1,19 +1,31 @@
 body {
   padding: 0;
   margin: 0;
+  font-size: 20px;
 }
 h1 {
   margin: 0;
 }
 /* For layout checking*/
-div, section, header, footer {
-  border: 1px solid black;
+.hover_btn {
+  width: 150px;
+  font-size: 25px;
+  color: black;
+  background: none;
+  border: 3px solid black; 
+  
+  transition: background-color 1s, color 1s;
+}
+.hover_btn:hover {
+  background: black;
+  color: white;
 }
 
 #logo {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 25px;
+  left: 25px;
+  font-size: 30px;
 }
 
 header {
@@ -21,6 +33,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
+  height: 100px;
   transition: top 1s ease;
 }
 
@@ -29,17 +42,21 @@ header {
   flex-direction: row;
   justify-content: space-around;
 
-  width: 500px;
+  width: 700px;
   margin: auto;
+  font-size: 15px;
 }
-
-#tab .li:hover {
+#tab .dropdown {
+  position: relative;
+  top: 30px;
   cursor: pointer;
-  color: blue;
-
-  transition: color 0.5s;
-  -webkit-transition: color 0.5s;
 }
+#tab .dropdown_wrapper {
+  position: absolute;
+  top: 35px;
+  left: 0;
+}
+
 /*
   text-orientation not work in IE,
   ref: https://stackoverflow.com/questions/17286651/vertical-text-in-ie7-ie8-ie9-and-ie10-with-css-only
@@ -50,7 +67,10 @@ header {
 
   position: fixed;
   top: 500px;
-  right: 0;
+  right: 30px;
+  font-size: 30px;
+  font-weight: bold;
+  color: grey;
 }
 #sidebtn:hover {
   cursor: pointer;
@@ -61,16 +81,17 @@ header {
 }
 
 #section1 {
-  height: 400px;
+  height: 760px;
   text-align: center;
   
   background-image: url("./testimg.png");
   background-size: cover;
   width: 100%;
   min-width: 500px;
+  overflow: auto;
 }
 #section1 .title{
-  margin-top: 50px;
+  margin-top: 250px;
   font-size: 50px;
 }
 
@@ -80,6 +101,7 @@ header {
 
   overflow: hidden;
   white-space: nowrap;
+  background: yellow
 }
 @keyframes move {
   from {
@@ -104,7 +126,7 @@ header {
 #section3 {
   width: 100%;
   min-width: 500px;
-  height: 300px;
+  height: 500px;
 
   display: flex;
   flex-direction: row;
@@ -114,33 +136,45 @@ header {
   background-image: url("./testimg.png");
   background-size: cover;
 }
-#section3 .text {
+#section3 .right {
   display: flex;
   flex-direction: row;
 
   width: 50%;
 }
-#section3 .text .margin {
+#section3 .right .margin {
   width: 20%;
   min-width: 50px;
-
-  border: none;
+}
+#section3 .right .text {
+  margin-top: 100px;
 }
 #section4 {
   width: 100%;
   min-width: 500px;
-  height: 400px;
+  height: 875px;
 
   display: flex;
   flex-direction: row;
 }
 #section4 .left {
   width: 30%;
+  min-width: 200px;
   text-align: center;
+  background: pink;
+}
+#section4 .left_text {
+  font-size: 70px;
+  transform: rotate(270deg);
+  transform-origin: center;
+  margin: auto;
+  margin-top: 300px;
+  width: 200px;
 }
 #section4 .left button {
   display: block;
   margin: auto;
+  margin-top: 150px;
 }
 #section4 .right {
   flex-direction: column;
@@ -150,16 +184,19 @@ header {
   background-image: url("./testimg.png");
   background-size: cover;
 
-  height: 300px;
+  height: 580px;
 }
 #section4 .right .text {
-  height: 100px;
+  margin-top: 30px;
+  margin-left: 30px;
+
+  width: 600px;
 }
 
 #section5 {
   width: 100%;
   min-width: 500px;
-  height: 300px;
+  height: 760px;
 
   display: flex;
   flex-direction: row;
@@ -216,7 +253,7 @@ header {
 .carousel .btn {
   position: absolute;
   width: 100%;
-  top: 200px;
+  top: 700px;
   text-align: center;
 }
 .carousel button {
@@ -242,7 +279,7 @@ header {
   flex-direction: row;
 }
 #section6 div {
-  width: 33%;
+  width: 33.3%;
   border: 1px solid black;
   height: 300px;
 }

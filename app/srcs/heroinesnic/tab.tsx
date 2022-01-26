@@ -4,13 +4,9 @@ const lis = [
   "Home", "About", "Some", "Button"
 ];
 
-const Tab: React.FC = () => (
+const Tab: React.FC = ({ children }) => (
   <div id="tab">
-    {lis.map((li, i) => (
-      <div className="li" key={`tab_${i}`}>
-        {li}
-      </div>
-    ))}
+    {children}
   </div>
 );
 

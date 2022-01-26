@@ -25,7 +25,7 @@ const BgMedia: React.FC = () => {
     const scrollevent = e => {
       console.log();
       ref.current.style.setProperty('--pos', 
-        (window.innerHeight - ref.current.getBoundingClientRect().top - 50) / 10 + 'px'
+        (window.innerHeight - ref.current.getBoundingClientRect().top - 50) / 8 + 'px'
       )
     }
 
