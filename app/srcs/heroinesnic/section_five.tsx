@@ -1,5 +1,6 @@
 import React from 'react';
 import BtnCarousel from './carousel';
+import BgMedia from './bgMedia';
 
 const SectionFive: React.FC = () => (
   <section id="section5">
@@ -12,7 +13,7 @@ const SectionFive: React.FC = () => (
       </BtnCarousel>
     </div>
     <div className="right">
-
+      <BgMedia />
     </div>
   </section>
 );

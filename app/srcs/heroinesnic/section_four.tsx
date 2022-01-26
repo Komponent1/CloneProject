@@ -8,7 +8,7 @@ const SectionFour: React.FC = () => (
     </div>
     <div className="right">
       <div className="img">
-
+        
       </div>
       <div className="text">
 
