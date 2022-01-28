@@ -38,6 +38,12 @@ module.exports = {
             {
                 test: /\.css$/i,
                 use: [MiniCssExtractPlugin.loader , 'css-loader']
+            },
+            {
+                test: /\.jpg$/i,
+                use: {
+                    loader: 'url-loader'
+                }
             }
         ]
     }
