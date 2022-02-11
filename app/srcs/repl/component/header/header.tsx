@@ -1,9 +1,10 @@
 import React from 'react';
 import * as style from './style';
 
-const Header: React.FC = ({ childern }) => (
+const Header: React.FC = ({ children }) => (
+  
   <style.div>
-    {childern}
+    {children}
   </style.div>
 );
 

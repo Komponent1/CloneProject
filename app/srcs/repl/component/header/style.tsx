@@ -8,7 +8,7 @@ export const div = styled.div`
   z-index: 10;
 
   width: 100%;
-  height: 25px;
+  height: 40px;
 
   border-bottom: 1px solid black;
 `;
