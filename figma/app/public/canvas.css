@@ -1,0 +1,16 @@
+#wrapper {
+  width: 800px;
+  height: 800px;
+  overflow: hidden;
+  position: relative;
+
+  border: 1px solid black;
+}
+#canvas {
+  --top: 0;
+  --left: 0;
+
+  position: absolute;
+  top: var(--top);
+  left: var(--left);
+}

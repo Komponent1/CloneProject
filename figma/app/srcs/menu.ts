@@ -33,6 +33,14 @@ const makeIcon = (wrapper: HTMLDivElement, data): void => {
   });
   icon.appendChild(context);
   wrapper.appendChild(icon);
+
+  icon.addEventListener('click', () => {
+    if (context.style.display === 'block') {
+      context.style.display = 'none';
+    } else {
+      context.style.display = 'block';
+    }
+  });
 }
 const makeOnetab = (wrapper: HTMLDivElement, data): void => {
   const icon = createElem('div', 'menu_icon');
@@ -42,7 +50,7 @@ const makeOnetab = (wrapper: HTMLDivElement, data): void => {
 
 export const Menu = (): void => {
   const header = document.getElementById('header');
-  const wrapper = document.createElement('div');
+  const wrapper = createElem('div', 'menu') as HTMLDivElement;
 
   menus.forEach(({type, data}, i) => {
     if (type === 'list') {
@@ -55,4 +63,28 @@ export const Menu = (): void => {
   });
 
   header.appendChild(wrapper);
+
+  const icons = Array.from(wrapper.children);
+  icons.forEach(icon => icon.addEventListener('click', e => {
+    e.stopPropagation();
+    for (let i = 0; i < icons.length; i++) {
+      if (icons[i].children.length === 0) continue;
+      else icons[i].children[0].style.display = 'none';
+    }
+    if (icon.children.length !== 0) {
+      icon.children[0].style.display = 'block';
+    }
+  }));
+
+  window.addEventListener('click', e => {
+    if (e.target.classList.contains('menu_icon') 
+        || e.target.classList.contains('menu_context')) return;
+    
+    for (let i = 0; i < icons.length; i++) {
+      for (let i = 0; i < icons.length; i++) {
+        if (icons[i].children.length === 0) continue;
+        else icons[i].children[0].style.display = 'none';
+      }
+    }
+  })
 }
