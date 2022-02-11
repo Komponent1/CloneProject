@@ -1,0 +1,36 @@
+#header {
+  position: fixed;
+  top: 0;
+  left:0;
+
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+.menu {
+  display: flex;
+}
+.menu_icon {
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  border-radius: 15px;
+
+  position: relative;
+}
+.menu_context {
+  display: none;
+
+  position: absolute;
+  top: auto;
+  left: 0;
+  border: 1px solid black;
+
+  list-style-type: none;
+  padding: 0;
+}
+.menu_li {
+
+}
+.menu_inner_context {
+
+}
