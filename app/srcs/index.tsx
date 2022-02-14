@@ -12,8 +12,8 @@ import Repl from './repl/root';
 
 const Main: React.FC = () => (
   <div>
-    <Link to="/heroinesnic">Heroinesnic</Link>
-    <Link to="/repl">Repl</Link>
+    <Link to="/heroinesnic"><p>Heroinesnic</p></Link>
+    <Link to="/repl"><p>Repl</p></Link>
   </div>
 )
 
