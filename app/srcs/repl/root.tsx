@@ -22,7 +22,7 @@ const Root: React.FC = () => {
         <Searchbar url={''} fetcher={async () => await server.request('repl', 'search')}/>
       </Header>
       <OpenBtn toggle={toggle}/>
-      <div style={{ display: 'flex', marginTop: '40px', height: '2000px' }}>
+      <div style={{ display: 'flex', height: '2000px' }}>
         <Menu display={display}/>
         <Routes location={state?.backgroundLocation || location}>
           <Route path={'/*'} element={<Home />} />

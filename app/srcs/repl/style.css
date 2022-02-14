@@ -1,3 +1,11 @@
 .autocomplete {
-  margin: auto;
+  position: relative;
+}
+
+.autocomplete input {
+  background: none;
+  border: none;
+}
+.autocomplete input:focus {
+  outline: none;
 }

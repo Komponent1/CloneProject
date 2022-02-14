@@ -2,7 +2,7 @@ import React from 'react';
 
 const Home: React.FC = () => {
   return (
-    <div>
+    <div style={{ marginTop: '70px' }}>
       repl Home
     </div>
   )

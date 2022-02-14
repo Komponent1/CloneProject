@@ -29,7 +29,7 @@ const Autocomplete: React.FC = ({placeholder, fetcher}: Prop) => {
         onChange={e => setText(e.target.value)}
         onFocus={() => setFocus(true)}
         onBlur={() => setFocus(false)}/>
-        <style.ul
+        <style.ul className="autocomplete_ul"
           display={lis.length !== 0 && focus}>
           {lis.map((li, i) => (
             <style.li key={i} onClick={() => {
