@@ -17,6 +17,6 @@ export const ul = styled.div<{ display: boolean }>`
   border: 1px solid black;
 `;
 export const li = styled.div`
-  width: 100%;
+  width: calc(100% - 20px);
   padding: 10px;
 `;

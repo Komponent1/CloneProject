@@ -8,11 +8,12 @@ export const div = styled.div`
   z-index: 10;
 
   width: 100%;
-  height: 60px;
+  height: 45px;
+  padding-top: 15px;
 
   border-bottom: 1px solid rgba(172, 172, 172, 0.5);
 
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: start;
 `;

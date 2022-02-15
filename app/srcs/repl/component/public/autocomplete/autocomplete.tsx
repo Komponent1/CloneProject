@@ -32,7 +32,8 @@ const Autocomplete: React.FC = ({placeholder, fetcher}: Prop) => {
         <style.ul className="autocomplete_ul"
           display={lis.length !== 0 && focus}>
           {lis.map((li, i) => (
-            <style.li key={i} onClick={() => {
+            <style.li className='autocomplete_li'
+              key={i} onClick={() => {
               setText(li)
             }}>
               {li}

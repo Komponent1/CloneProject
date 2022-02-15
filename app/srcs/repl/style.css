@@ -9,3 +9,12 @@
 .autocomplete input:focus {
   outline: none;
 }
+.autocomplete .autocomplete_ul {
+  border: none;
+}
+.autocomplete .autocomplete_ul div {
+  border-radius: 5px;
+}
+.autocomplete .autocomplete_ul div:hover {
+  background-color: rgb(172, 172, 172);
+}
