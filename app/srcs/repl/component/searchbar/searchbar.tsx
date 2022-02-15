@@ -6,8 +6,6 @@ type Prop = {
   fetcher: Function
 }
 const Searchbar: React.FC = ({ fetcher }) => {
-  
-
   return (
     <style.div>
       <div>></div>

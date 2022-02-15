@@ -5,6 +5,7 @@ import {
   useLocation
 } from 'react-router-dom';
 import './style.css';
+import * as style from './style';
 import server from '../server/server';
 import { Menu, Modal, OpenBtn, Header, Searchbar } from './component'
 import { useDisplay } from './hook';
@@ -24,10 +25,12 @@ const Root: React.FC = () => {
       <OpenBtn toggle={toggle}/>
       <div style={{ display: 'flex', height: '2000px' }}>
         <Menu display={display}/>
-        <Routes location={state?.backgroundLocation || location}>
-          <Route path={'/*'} element={<Home />} />
-          <Route path={`myrepl`} element={<MyRepl />} />
-        </Routes>
+        <style.main>
+          <Routes location={state?.backgroundLocation || location}>
+            <Route path={'/*'} element={<Home />} />
+            <Route path={`myrepl/*`} element={<MyRepl />} />
+          </Routes>
+        </style.main>
 
         {state?.backgroundLocation && (
           <Routes>
