@@ -18,3 +18,10 @@
 .autocomplete .autocomplete_ul div:hover {
   background-color: rgb(172, 172, 172);
 }
+
+a {
+  text-decoration: none;
+}
+a:any-link {
+  color: black;
+}

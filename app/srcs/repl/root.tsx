@@ -11,7 +11,7 @@ import { useDisplay } from './hook';
 import { Home, MyRepl } from './page';
 
 const Root: React.FC = () => {
-  const [display, on, off, toggle] = useDisplay(false);
+  const [display, on, off, toggle] = useDisplay(true);
 
   const location = useLocation();
   let state = location.state as { backgroundLocation?: Location };

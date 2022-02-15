@@ -9,11 +9,11 @@ export const background = styled.div`
   height: 100vh;
 
   background: rgba(0,0,0,0.5);
+
+  z-index: 99;
 `;
 export const div = styled.div`
-  position: absolute;
-  top: 100px;
-  left: 100px;
+  margin: auto;
 
   width: 500px;
   height: 500px;

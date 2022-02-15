@@ -41,20 +41,18 @@ const menu: MenuProp[] = [
 
 
 const IconBtn: React.FC = ({ className, src, url, text, state }: MenuProp) => (
-  <style.menu className={className}>
-    <Link state={state} to={url}>
+  <Link state={state} to={url}>
+    <style.menu className={className}>
       <img src={src} />
       {text}
-    </Link>
-  </style.menu>
+    </style.menu>
+  </Link>
 );
 
 const Menu: React.FC = ({ display }) => {
   const location = useLocation();
   const [active, setActive] = useState<boolean>();
   const ref = useRef<React.Ref>();
-
-  
 
   return (
     <style.div ref={ref}style={{ display: display ? 'block' : 'none' }}>
