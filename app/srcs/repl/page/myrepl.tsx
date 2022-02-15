@@ -8,21 +8,37 @@ const MyRepl: React.FC = ({ fetcher }) => {
   const [dir, setDir] = useState(null);
   const location = useLocation();
   const path = useParams();
+  
+  const currentDir = () => {
+    if (path['*'] === '') setDir(data.sub);
+    else {
+      const paths = path['*'].split('/').filter(e => e !== '');
+      let pos = data.sub;
+      for (let i = 0; i < paths.length; i++) {
+        pos = pos.find(e => e.name === paths[i] && e.type === 'dir').sub;
+      }
+      setDir(pos);
+    }
+  }
+  
   useEffect(() => {
-
     if (!data) return;
-    if (path['*'] === '') setDir(data.own);
-    else setDir(data.own.filter(e => e.name === path['*'])[0].sub)
-  }, [data, path])
+    currentDir();
+  }, [ data ]);
+  
+  useEffect(() => {
+    if (!dir) return;
+    currentDir();
+  }, [ path ]);
 
   if (loading || !data || !dir) return <div>loading</div>
   return (
     <div>
-      <Link state={{ backgroundLocation: location }} to={'/repl/create/folder'}><style.button>New folder</style.button></Link>
+      <Link state={{ backgroundLocation: location }} to={`/repl/createf/${path['*']}`}><style.button>New folder</style.button></Link>
       {dir.map(({ name, type, sub }, i) => {
         switch(type) {
           case 'dir':
-            return <div key={i}><Link to={name}>dir_{name}</Link></div>
+            return <div key={i}><Link to={path['*'] !== '' ? `${path['*']}/${name}`: name}>dir_{name}</Link></div>
           case 'script':
             return <div key={i}>scr_{name}</div>
         }

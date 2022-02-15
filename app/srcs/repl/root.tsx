@@ -10,6 +10,7 @@ import server from '../server/server';
 import { Menu, Modal, OpenBtn, Header, Searchbar } from './component'
 import { useDisplay } from './hook';
 import { Home, MyRepl } from './page';
+import { CreateFolder } from './modal';
 
 const Root: React.FC = () => {
   const [display, on, off, toggle] = useDisplay(true);
@@ -33,9 +34,11 @@ const Root: React.FC = () => {
         </style.main>
 
         {state?.backgroundLocation && (
+          <Modal>
           <Routes>
-            <Route path="create/:lang" element={<Modal />} />
+            <Route path="createf/:paths" element={<CreateFolder />} />
           </Routes>
+          </Modal>
         )}
       </div>
     </>
