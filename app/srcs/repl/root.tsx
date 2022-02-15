@@ -34,11 +34,11 @@ const Root: React.FC = () => {
         </style.main>
 
         {state?.backgroundLocation && (
-          <Modal>
-          <Routes>
-            <Route path="createf/:paths" element={<CreateFolder />} />
-          </Routes>
-          </Modal>
+          
+            <Routes>
+              <Route path="createf/*" element={<CreateFolder />} />
+            </Routes>
+          
         )}
       </div>
     </>

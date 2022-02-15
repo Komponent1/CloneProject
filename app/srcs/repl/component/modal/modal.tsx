@@ -1,19 +1,16 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import * as style from './style';
 import { useNavigate } from 'react-router-dom';
 
-const Modal: React.FC = () => {
+const Modal: React.FC = ({ children }) => {
   const navigate = useNavigate();
-  const ref = useRef<React.Ref>(null);
+
+  const ignore = e => e.stopPropagation();
 
   return (
-    <style.background onClick={e => {
-      e.stopPropagation();
-      if (e.target === ref.current) return;
-      navigate(-1)
-    }}>
-      <style.div ref={ref}>
-
+    <style.background onClick={() => navigate(-1)}>
+      <style.div onClick={ignore}>
+        {children}
       </style.div>
     </style.background>
   );

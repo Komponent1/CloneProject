@@ -8,14 +8,10 @@ export const background = styled.div`
   width: 100vw;
   height: 100vh;
 
-  background: rgba(0,0,0,0.5);
+  background: rgba(172,172,172,0.5);
 
   z-index: 99;
 `;
 export const div = styled.div`
-  margin: auto;
-
-  width: 500px;
-  height: 500px;
-  background: white;
+  margin: auto;  
 `;

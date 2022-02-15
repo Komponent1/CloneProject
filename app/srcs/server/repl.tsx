@@ -32,7 +32,7 @@ let datas = {
 }
 
 const create = (type: string, name: string, paths: string[]) => {  
-  let pos = datas.user.own;
+  let pos = datas.user.sub;
   for(let i = 0; i < paths.length; i++) {
     pos = pos.find(e => e.name === paths[i] && e.type === 'dir').sub;
   }
