@@ -1,12 +1,6 @@
-/*
-  Menu
-
-  각 위치로 이동 가능
-*/
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import * as style from './style';
 import { Link, useLocation } from 'react-router-dom';
-import { useDisplay } from '../../hook';
 
 import im from '../../public/testimg.jpg'
 
@@ -57,9 +51,13 @@ const IconBtn: React.FC = ({ className, src, url, text, state }: MenuProp) => (
 
 const Menu: React.FC = ({ display }) => {
   const location = useLocation();
+  const [active, setActive] = useState<boolean>();
+  const ref = useRef<React.Ref>();
+
+  
 
   return (
-    <style.div style={{ display: display ? 'block' : 'none' }}>
+    <style.div ref={ref}style={{ display: display ? 'block' : 'none' }}>
       {menu.map((e, i) => (
         <IconBtn 
           key={i} {...e}
