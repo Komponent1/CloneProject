@@ -3,6 +3,16 @@ import { useRequest } from '../hook';
 import { useParams , Link, useLocation } from 'react-router-dom';
 import * as style from './style';
 
+const Li = () => {
+  return (
+    <style.li>
+      <style.star></style.star>
+      <style.name></style.name>
+      <style.date></style.date>
+    </style.li>
+  )
+};
+
 const MyRepl: React.FC = ({ fetcher }) => {
   const [data, loading] = useRequest('repl', 'user');
   const [dir, setDir] = useState(null);

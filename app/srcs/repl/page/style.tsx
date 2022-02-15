@@ -11,3 +11,19 @@ export const button = styled.div`
   border-radius: 1px;
   padding: 0 4px;
 `;
+export const li = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+export const star = styled.div`
+  
+`;
+export const name = styled.div`
+
+`;
+export const lang = styled.div`
+
+`;
+export const date = styled.div`
+
+`;

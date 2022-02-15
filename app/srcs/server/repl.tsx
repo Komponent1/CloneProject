@@ -1,4 +1,27 @@
-let datas = {
+type File = {
+  name: string,
+  type: string
+}
+type Script = File & {
+  lang: string,
+  create_at: string,
+  size: number
+  favorite: boolean
+}
+type Dir = File & {
+  sub: Array<Dir | Script>
+}
+type User = {
+  id: string,
+  sub: Array<Dir | Script>
+}
+type Data = {
+  search: string[],
+  lang: string[],
+  user: User
+}
+
+let datas: Data = {
   search: ['create', 'run', 'get user name'],
   lang: ['c', 'c++', 'javascript'],
   user: {
@@ -16,16 +39,28 @@ let datas = {
           {
             name: 'Kome.ts',
             type: 'script',
+            lang: 'c',
+            size: 383,
+            create_at: Date(),
+            favorite: false
           },
           {
-            name: 'Comp.ts',
-            type: 'script'
+            name: 'Kome.ts',
+            type: 'script',
+            lang: 'c#',
+            size: 33,
+            create_at: Date(),
+            favorite: true
           }
         ]
       },
       {
-        name: 'srouce.ts',
-        type: 'script'
+        name: 'Kome.ts',
+        type: 'script',
+        lang: 'javascript',
+        size: 253,
+        create_at: Date(),
+        favorite: false
       }
     ]
   }
@@ -34,7 +69,7 @@ let datas = {
 const create = (type: string, name: string, paths: string[]) => {  
   let pos = datas.user.sub;
   for(let i = 0; i < paths.length; i++) {
-    pos = pos.find(e => e.name === paths[i] && e.type === 'dir').sub;
+    pos = (pos.find(e => e.name === paths[i] && e.type === 'dir') as Dir).sub;
   }
   type === 'dir' ? pos.push({ name, type: 'dir', sub: [] }) : pos.push({ name, type: 'script' });
 

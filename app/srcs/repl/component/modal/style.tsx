@@ -11,7 +11,10 @@ export const background = styled.div`
   background: rgba(172,172,172,0.5);
 
   z-index: 99;
+  text-align: center;
 `;
 export const div = styled.div`
-  margin: auto;  
+  display: inline-block;
+  margin: auto;
+  text-align: left;
 `;
