@@ -9,7 +9,6 @@ const MyRepl: React.FC = ({ fetcher }) => {
   const location = useLocation();
   const path = useParams();
   useEffect(() => {
-    console.log(data, path, dir)
 
     if (!data) return;
     if (path['*'] === '') setDir(data.own);

@@ -8,7 +8,6 @@ const BtnCarousel: React.FC = ({ children }) => {
   const [ isChanged, setIsChanged ] = useState<boolean>(false);
 
   const click = (i: number) => {
-    console.log(refs);
     if (idx === i || isChanged) return;
     refs.current[idx].current.style.setProperty('--trans', 0);
     setIsChanged(true);

@@ -9,7 +9,6 @@ const BgMedia: React.FC = () => {
   const [ move, setMove ] = useState<boolean>(false);
   const observer = new IntersectionObserver(
     ([ entry ]) => {
-      console.log('work');
       if (entry.isIntersecting) setMove(true);
       else setMove(false);
     }
@@ -23,7 +22,6 @@ const BgMedia: React.FC = () => {
 
   useEffect(() => {
     const scrollevent = e => {
-      console.log();
       ref.current.style.setProperty('--pos', 
         (window.innerHeight - ref.current.getBoundingClientRect().top - 50) / 8 + 'px'
       )
