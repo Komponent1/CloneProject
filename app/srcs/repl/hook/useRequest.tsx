@@ -12,6 +12,8 @@ const useRequest = (type: string, api: string, option?: Object, nodirect?: boole
     const { data } = await server.request(type, api, option);
     setData(data);
     setLoading(false);
+
+    return data;
   }
 
   useEffect(() => {

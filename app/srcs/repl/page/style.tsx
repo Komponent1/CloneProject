@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
+export const div = styled.div`
+  width: 80%;
+  margin-left: 15px;
+`;
 export const button = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
+  display: inline-block;
 
   border: 1px solid rgba(172, 172, 172, 0.8);
   background: rgba(172, 172, 172, 0.4);
@@ -14,16 +15,26 @@ export const button = styled.div`
 export const li = styled.div`
   display: flex;
   flex-direction: row;
-`;
-export const star = styled.div`
+  justify-content: space-between;
   
 `;
-export const name = styled.div`
+export const star = styled.div<{ color: string}>`
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  border: 1px solid black;
+  flex-grow: 1;
 
+  background: ${({ color }) => color};
+  display:inline-block;
+  margin-right: 15px;
+`;
+export const name = styled.div`
+  
 `;
 export const lang = styled.div`
-
+  
 `;
 export const date = styled.div`
-
+  
 `;

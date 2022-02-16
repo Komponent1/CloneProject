@@ -45,7 +45,7 @@ let datas: Data = {
             favorite: false
           },
           {
-            name: 'Kome.ts',
+            name: 'Kome2.ts',
             type: 'script',
             lang: 'c#',
             size: 33,
@@ -55,7 +55,7 @@ let datas: Data = {
         ]
       },
       {
-        name: 'Kome.ts',
+        name: 'Kome3.ts',
         type: 'script',
         lang: 'javascript',
         size: 253,
@@ -71,7 +71,34 @@ const create = (type: string, name: string, paths: string[]) => {
   for(let i = 0; i < paths.length; i++) {
     pos = (pos.find(e => e.name === paths[i] && e.type === 'dir') as Dir).sub;
   }
-  type === 'dir' ? pos.push({ name, type: 'dir', sub: [] }) : pos.push({ name, type: 'script' });
+  type === 'dir' ? pos.push({ name, type: 'dir', sub: [] }) : pos.push({
+    type: 'script',
+    name, lang: 'javascript', size: 52, create_at: Date(), favorite: false
+  });
+
+  return datas.user;
+}
+
+const del = (name: string, paths: string) => {
+  let pos = datas.user.sub;
+  for(let i = 0; i < paths.length; i++) {
+    pos = (pos.find(e => e.name === paths[i] && e.type === 'dir') as Dir).sub;
+  }
+
+  console.log(pos)
+  pos.splice(pos.findIndex(e => e.name === name), 1);
+  console.log(pos)
+
+  return datas.user;
+}
+
+const edit = (name: string, paths: string) => {
+  let pos = datas.user.sub;
+  for(let i = 0; i < paths.length; i++) {
+    pos = (pos.find(e => e.name === paths[i] && e.type === 'dir') as Dir).sub;
+  }
+  const idx = pos.findIndex(e => e.name === name);
+  (pos[idx] as Script).favorite = !(pos[idx] as Script).favorite
 
   return datas.user;
 }
@@ -84,6 +111,10 @@ const repl = (api: string, option?: any) => {
       return datas.user;
     case('create'):
       return create(option.type, option.name, option.paths);
+    case('del'):
+      return del(option.name, option.paths);
+    case('edit'):
+      return edit(option.name, option.paths);
     default:
       return null;
   }

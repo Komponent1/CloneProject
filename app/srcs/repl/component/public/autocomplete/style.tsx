@@ -7,8 +7,8 @@ export const input = styled.input`
   width: calc(100% - 6px);
   padding: 3px;
 `;
-export const ul = styled.div<{ display: boolean }>`
-  display: ${({ display }) => display ? 'block' : 'none'};
+export const ul = styled.div<{ show: boolean }>`
+  display: ${({ show }) => show ? 'block' : 'none'};
   
   width: 100%;
   overflow-y: scroll;

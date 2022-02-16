@@ -34,7 +34,6 @@ const Root: React.FC = () => {
         </style.main>
 
         {state?.backgroundLocation && (
-          
             <Routes>
               <Route path="createf/*" element={<CreateFolder />} />
             </Routes>
