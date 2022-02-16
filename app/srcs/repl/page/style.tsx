@@ -16,25 +16,26 @@ export const li = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  
 `;
 export const star = styled.div<{ color: string}>`
   width: 10px;
   height: 10px;
   border-radius: 10px;
   border: 1px solid black;
-  flex-grow: 1;
 
   background: ${({ color }) => color};
   display:inline-block;
   margin-right: 15px;
 `;
 export const name = styled.div`
-  
+  flex-grow: 1;
+  flex-basis: 0;
 `;
 export const lang = styled.div`
-  
+  flex-grow: 1;
+  flex-basis: 0;
 `;
 export const date = styled.div`
-  
+  flex-grow: 1;
+  flex-basis: 0;
 `;
