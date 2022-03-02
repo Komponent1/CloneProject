@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useRequest } from '../hook';
-import { Modal } from '../component';
+import { useRequest } from '../../hook';
+import { Modal } from '../../component';
 import * as style from './style';
 
 const CreateFolder: React.FC = () => {
   const navigate = useNavigate();
   const [ value, setValue ] = useState<string>('untitled folder');
   const path = useParams();
-  const [ data, loading, fetcher ] = useRequest(
+  const { fetcher } = useRequest(
     'repl',
     'create', 
     {

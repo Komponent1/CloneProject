@@ -9,10 +9,10 @@ const Li: React.FC = ({ path, name, lang, create_at, size, favorite }) => {
     const date = new Date(raw);
     
     return `${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`
-}
+  }
   const navigate = useNavigate();
-  const [_, __, del] = useRequest('repl', 'del', { paths: path['*'].split('/').filter(e => e !== ''), name }, true);
-  const [___, ____, edit] = useRequest('repl', 'edit', { paths: path['*'].split('/').filter(e => e !== ''), name }, true);
+  const deleteFoler = useRequest('repl', 'del', { paths: path['*'].split('/').filter(e => e !== ''), name }, true).fetcher;
+  const editFoler = useRequest('repl', 'edit', { paths: path['*'].split('/').filter(e => e !== ''), name }, true).fetcher;
   const menus = [
     {
       name: 'edit',
@@ -21,7 +21,7 @@ const Li: React.FC = ({ path, name, lang, create_at, size, favorite }) => {
     {
       name: 'delete',
       act: async () => {
-        await del();
+        await deleteFoler();
         navigate(path);
       }
     } 
@@ -34,7 +34,7 @@ const Li: React.FC = ({ path, name, lang, create_at, size, favorite }) => {
         <style.star
           color={favorite ? 'black' : 'white'}
           onClick={async () => {
-            const data = await edit()
+            const data = await editFoler()
             console.log(data)
             navigate(path);
           }}/>
@@ -48,7 +48,7 @@ const Li: React.FC = ({ path, name, lang, create_at, size, favorite }) => {
 };
 
 const MyRepl: React.FC = ({ fetcher }) => {
-  const [data, loading] = useRequest('repl', 'user');
+  const { data, loading, err } = useRequest('repl', 'user');
   const [dir, setDir] = useState(null);
   const location = useLocation();
   const path = useParams();
@@ -75,7 +75,8 @@ const MyRepl: React.FC = ({ fetcher }) => {
     currentDir();
   }, [ path ]);
 
-  if (loading || !data || !dir) return <div>loading</div>
+  if (err) return (<div>Error</div>)
+  if (loading || !data || !dir) return (<div>loading</div>)
   return (
     <style.div>
       <Link state={{ backgroundLocation: location }} to={`/repl/createf/${path['*']}`}><style.button>New folder</style.button></Link>

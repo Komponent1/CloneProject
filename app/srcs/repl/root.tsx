@@ -7,10 +7,10 @@ import {
 import './style.css';
 import * as style from './style';
 import server from '../server/server';
-import { Menu, Modal, OpenBtn, Header, Searchbar } from './component'
+import { Menu, OpenBtn, Header, Searchbar } from './component'
 import { useDisplay } from './hook';
 import { Home, MyRepl } from './page';
-import { CreateFolder } from './modal';
+import { CreateFolder, CreateScript } from './modal';
 
 const Root: React.FC = () => {
   const [display, on, off, toggle] = useDisplay(true);
@@ -34,10 +34,10 @@ const Root: React.FC = () => {
         </style.main>
 
         {state?.backgroundLocation && (
-            <Routes>
-              <Route path="createf/*" element={<CreateFolder />} />
-            </Routes>
-          
+          <Routes>
+            <Route path="creates/*" element={<CreateScript />} />
+            <Route path="createf/*" element={<CreateFolder />} />
+          </Routes>
         )}
       </div>
     </>

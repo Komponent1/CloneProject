@@ -15,7 +15,7 @@ const menu: MenuProp[] = [
   {
     className: 'createbtn',
     src: '',
-    url: '/repl/create/c',
+    url: '/repl/creates/c',
     text: 'Create',
     state: {}
   },
