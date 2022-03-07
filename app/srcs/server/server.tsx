@@ -7,7 +7,7 @@ const response = async (data) => {
 const request = async (type: string, api: string, option?: Object) => {
   switch (type) {
     case ('repl'):
-      return (await response(repl(api, option)));
+      return (await response(await repl(api, option)));
     default:
       return (await response({ err: 'This is Wrong Request '}));
   }

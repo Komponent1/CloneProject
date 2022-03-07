@@ -25,7 +25,12 @@ body {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 a:any-link {
-  color: black;
+  color: inherit;
+}
+
+.kui_button {
+  background: rgba(172, 172, 172, 0.3);
 }

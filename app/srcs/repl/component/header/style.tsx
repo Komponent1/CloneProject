@@ -16,4 +16,5 @@ export const div = styled.div`
   display: flex;
   flex-direction: row;
   align-items: start;
+  background: white;
 `;
