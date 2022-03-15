@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 
-export const home = styled.div`
+export const div = styled.div`
+  margin-left: 15px;
+
   >.kui_loading {
     margin-top: calc(50vh - 15px);
-    transform: translateY(-50%);
+    transform:translateY(-50%);
   }
-`
-export const div = styled.div`
-  width: 80%;
-  margin-left: 15px;
 `;
 export const button = styled.div`
   display: inline-block;
@@ -45,3 +43,4 @@ export const date = styled.div`
   flex-grow: 1;
   flex-basis: 0;
 `;
+

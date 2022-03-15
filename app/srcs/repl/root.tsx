@@ -4,16 +4,16 @@ import {
   Route,
   useLocation
 } from 'react-router-dom';
-import './style.css';
+import './public/style.css';
 import * as style from './style';
 import server from '../server/server';
-import { Menu, OpenBtn, Header, Searchbar } from './component'
+import { OpenBtn, Header, Searchbar } from './component'
 import { useDisplay } from './hook';
-import { Home, MyRepl } from './page';
+import { Home, MyRepl, Menu } from './page';
 import { CreateFolder, CreateScript } from './modal';
 
 const Root: React.FC = () => {
-  const [display, on, off, toggle] = useDisplay(true);
+  const { display, toggle } = useDisplay(true);
 
   const location = useLocation();
   let state = location.state as { backgroundLocation?: Location };
@@ -24,9 +24,9 @@ const Root: React.FC = () => {
         <Searchbar url={''} fetcher={async () => await server.request('repl', 'search')}/>
       </Header>
       <OpenBtn toggle={toggle}/>
-      <div style={{ display: 'flex', minHeight: '100vh' }}>
-        <Menu display={display}/>
-        <style.main>
+      <style.div>
+        <Menu display={display} />
+        <style.main className='section'>
           <Routes location={state?.backgroundLocation || location}>
             <Route path={'/*'} element={<Home />} />
             <Route path={`myrepl/*`} element={<MyRepl />} />
@@ -39,7 +39,7 @@ const Root: React.FC = () => {
             <Route path="createf/*" element={<CreateFolder />} />
           </Routes>
         )}
-      </div>
+      </style.div>
     </>
   )
 };

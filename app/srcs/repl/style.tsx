@@ -7,3 +7,7 @@ export const main = styled.div`
   padding: 20px;
   flex-grow: 1;
 `;
+export const div = styled.div`
+  display: flex;
+  min-height: 100vh;
+`

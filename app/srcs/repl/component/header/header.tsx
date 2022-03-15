@@ -2,7 +2,7 @@ import React from 'react';
 import * as style from './style';
 
 const Header: React.FC = ({ children }) => (
-  <style.div>
+  <style.div className='header'>
     {children}
   </style.div>
 );

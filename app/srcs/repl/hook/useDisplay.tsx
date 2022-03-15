@@ -7,7 +7,7 @@ const useDisplay = (initial: boolean) => {
   const off = () => setDisplay(false);
   const toggle = () => setDisplay((prev: boolean) => !prev);
 
-  return [ display, on, off, toggle ];
+  return { display, on, off, toggle };
 };
 
 export default useDisplay;

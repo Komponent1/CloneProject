@@ -22,7 +22,7 @@ const typeCheck = (type) => {
   }
 }
 
-const Loading = ({ type = 'linearspin' }: Prop) => {
+const Loading: React.FC = ({ type = 'linearspin' }: Prop) => {
   return (
     <style.div className='kui_loading'>
       {typeCheck(type)}
