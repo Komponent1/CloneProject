@@ -1,5 +1,6 @@
 import React from 'react';
-import { Homebox } from '../component';
+import * as style from './style';
+import { Homebox, Loading } from '../component';
 import { useRequest } from '../hook';
 
 const useHomeData = () => {
@@ -17,7 +18,7 @@ const useHomeData = () => {
 const Home: React.FC = () => {
   const { loading, err, repl, repo } = useHomeData();
 
-  if (loading || !repl) return <div>Loading</div>
+  if (loading || !repl) return <style.home><Loading /></style.home>
   if (err) return <div>Error</div>
   return (
     <div>

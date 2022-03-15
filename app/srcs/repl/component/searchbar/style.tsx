@@ -5,6 +5,6 @@ export const div = styled.div`
   border-radius: 8px;
 
   padding: 5px 10px;
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
 `;

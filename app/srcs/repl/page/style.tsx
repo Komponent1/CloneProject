@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const home = styled.div`
+  >.kui_loading {
+    margin-top: calc(50vh - 15px);
+    transform: translateY(-50%);
+  }
+`
 export const div = styled.div`
   width: 80%;
   margin-left: 15px;

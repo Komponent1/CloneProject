@@ -10,6 +10,7 @@ type MenuProp = {
   url: string,
   text: string,
   state?: Object
+  styles?: Object
 };
 const menu: MenuProp[] = [
   {
@@ -17,13 +18,15 @@ const menu: MenuProp[] = [
     src: '',
     url: '/repl/creates/c',
     text: 'Create',
-    state: {}
+    state: {},
+    styles: { textAlign: 'center', background: '#6BB5FF', fontSize: '0.9em' }
   },
   {
     className: 'upgradebtn',
     src: '',
     url: '/repl/upgrade',
     text: 'Upgrade',
+    styles: { textAlign: 'center', boxShadow: '0 0 0 1px inset #AFB1B3', fontSize: '0.9em' }
   },
   {
     className: 'normal',
@@ -39,10 +42,9 @@ const menu: MenuProp[] = [
   }
 ]
 
-
-const IconBtn: React.FC = ({ className, src, url, text, state }: MenuProp) => (
+const IconBtn: React.FC = ({ className, src, url, text, state, styles }: MenuProp) => (
   <Link state={state} to={url}>
-    <style.menu className={className}>
+    <style.menu className={className} style={styles}>
       <img src={src} />
       {text}
     </style.menu>
@@ -51,7 +53,6 @@ const IconBtn: React.FC = ({ className, src, url, text, state }: MenuProp) => (
 
 const Menu: React.FC = ({ display }) => {
   const location = useLocation();
-  const [active, setActive] = useState<boolean>();
   const ref = useRef<React.Ref>();
 
   return (
