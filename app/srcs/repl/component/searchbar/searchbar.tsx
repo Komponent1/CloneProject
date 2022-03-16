@@ -8,10 +8,7 @@ type Prop = {
 const Searchbar: React.FC = ({ fetcher }) => {
   return (
     <style.div className='searchbar'>
-      <div className='searchbar_icon'>{'>'}</div>
-      <div style={{ display: 'inline-block' }}>
-        <Autocomplete fetcher={fetcher} />
-      </div>
+      <Autocomplete fetcher={fetcher} />
     </style.div>
   )
 };

@@ -11,6 +11,8 @@ import { OpenBtn, Header, Searchbar } from './component'
 import { useDisplay } from './hook';
 import { Home, MyRepl, Menu } from './page';
 import { CreateFolder, CreateScript } from './modal';
+import { ThemeProvider } from 'styled-components';
+import theme from './theme';
 
 const Root: React.FC = () => {
   const { display, toggle } = useDisplay(true);
@@ -19,7 +21,7 @@ const Root: React.FC = () => {
   let state = location.state as { backgroundLocation?: Location };
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Header>
         <Searchbar url={''} fetcher={async () => await server.request('repl', 'search')}/>
       </Header>
@@ -40,7 +42,7 @@ const Root: React.FC = () => {
           </Routes>
         )}
       </style.div>
-    </>
+    </ThemeProvider>
   )
 };
 

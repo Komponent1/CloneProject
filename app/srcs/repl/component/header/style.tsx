@@ -10,7 +10,7 @@ export const div = styled.div`
   width: 100%;
   padding: 15px;
 
-  border-bottom: 1px solid #E4E5E6;
+  border-bottom: 1px solid ${({ theme }) => theme.color.basic};
   background: white;
 
   
