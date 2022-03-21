@@ -20,7 +20,7 @@ const Home: React.FC = () => {
   const { loading, err, repl, repo } = useHomeData();
 
   if (err) return <div>Error</div>
-  if (loading || !data) return <style.div><Loading /></style.div>
+  if (loading || !repo) return <style.div><Loading /></style.div>
   return (
     <style.div className='home'>
       <Homebox title='Create' addon='See all templates' link='' type='create' datas={{ langs }}/>

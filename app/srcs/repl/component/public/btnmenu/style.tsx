@@ -6,11 +6,13 @@ export const div = styled.div`
 `;
 export const btn = styled.div<{ show: boolean }>`
   display: inline-block;
-  border-radius: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  text-align: center;
+  line-height: 20px;
   border: 1px solid ${({ show }) => show ? '#235E52' : 'rgba(0,0,0,0)'};
-  padding: 3px;
   
-
   &:hover {
     background-color: rgba(172, 172, 172, 0.4);
   }
@@ -21,12 +23,12 @@ export const ul = styled.div<{ show: boolean }>`
   position: absolute;
   top: auto;
   right: 0;
-
-  width: 100px;
-  border: 1px solid rgba(172, 172, 172, 0.5);
+  background-color: white;
+  box-shadow: 0px 0px 5px grey;
+  white-space: nowrap;
 `;
 export const li = styled.div`
-  width: 100%;
+  padding: 5px 15px;
 
   &:bover{
     background: rgba(172, 172, 172, 0.5);

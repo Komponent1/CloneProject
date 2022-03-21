@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useRequest } from '../../hook';
-import { Modal } from '../../component';
+import { Modal } from '../';
 import * as style from './style';
 
 const CreateScript: React.FC = () => {

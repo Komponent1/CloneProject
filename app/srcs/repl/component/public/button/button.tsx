@@ -20,15 +20,15 @@ const Button: React.FC = ({ text = '', click = (e: React.MouseEvent) => {} }: Pr
         waveRef.current.ontransitionend = () => {};
         setWave({
           opacity: 1, duration: 0.3,
-          top: e.clientY - btnRef.current.offsetTop - 100,
-          left: e.clientX - btnRef.current.offsetLeft - 100,
+          top: e.clientY - btnRef.current.getBoundingClientRect().top - 100,
+          left: e.clientX - btnRef.current.getBoundingClientRect().left - 100,
           scale: 1
         })
       }}
       onMouseUp={(e: React.MouseEvent) => {
         setWave({...wave, opacity: 0 });
         waveRef.current.ontransitionend = () => {
-          setWave({ ...wave, duration: 0, scale: 0 });
+          setWave(wave => ({ ...wave, duration: 0, scale: 0 }));
         }
         click(e);
       }}>

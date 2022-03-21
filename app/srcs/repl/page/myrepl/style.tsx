@@ -12,24 +12,38 @@ export const div = styled.div`
   }
 `;
 
-export const li = styled.div`
+export const wrapper = styled.div`
+  padding: ${({ theme }) => theme.size.xxs};
+  font-size: ${({ theme }) => theme.size.lg};
+  font-weight: 500;
+`
+export const li = styled(wrapper)`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-`;
-export const star = styled.div<{ color: string}>`
-  width: 10px;
-  height: 10px;
-  border-radius: 10px;
-  border: 1px solid black;
+  align-items: center;
 
-  background: ${({ color }) => color};
-  display:inline-block;
-  margin-right: 15px;
+  background: ${({ theme }) => theme.color.border};
+  border-radius: 4px;
+  font-size: ${({ theme }) => theme.size.base};
+  font-weight: 400;
+
+  &:hover {
+    background: ${({ theme }) => theme.color.white};
+  }
 `;
 export const name = styled.div`
   flex-grow: 1;
   flex-basis: 0;
+  display: inline-flex;
+  align-items: center;
+  
+  >.kui_rating {
+    margin-right: ${({ theme }) => theme.size.xxxs};
+  }
+  >.kui_rating>.kui_rating_rate {
+    font-size: ${({ theme }) => theme.size.base};
+  }
 `;
 export const lang = styled.div`
   flex-grow: 1;

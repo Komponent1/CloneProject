@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useRequest } from '../../hook';
 import { useParams , Link, useLocation, useNavigate } from 'react-router-dom';
 import * as style from './style';
-import { BtnMenu, Loading, Button } from '../../component';
+import { BtnMenu, Loading, Button, Rating } from '../../component';
 
 const Li: React.FC = ({ path, name, lang, create_at, size, favorite }) => {
   const time = (raw: string) => {
@@ -31,18 +31,12 @@ const Li: React.FC = ({ path, name, lang, create_at, size, favorite }) => {
   return (
     <style.li>
       <style.name>
-        <style.star
-          color={favorite ? 'black' : 'white'}
-          onClick={async () => {
-            const data = await editFoler()
-            console.log(data)
-            navigate(path);
-          }}/>
+        <Rating num={1}/>
         {name}
       </style.name>
       <style.lang>{lang}</style.lang>
       <style.date>{time(create_at)}</style.date>
-      <BtnMenu menus={menus}/>
+      <BtnMenu config={menus}/>
     </style.li>
   )
 };
@@ -82,14 +76,12 @@ const MyRepl: React.FC = ({ fetcher }) => {
       <Link state={{ backgroundLocation: location }} to={`/repl/createf/${path['*']}`}>
         <Button text='New Folder' click={() => {}}/>
       </Link>
-      {dir.map((e, i) => {
-        switch(e.type) {
-          case 'dir':
-            return <div key={i}><Link to={path['*'] !== '' ? `${path['*']}/${e.name}`: e.name}>dir_{e.name}</Link></div>
-          case 'script':
-            return <Li key={i} path={path} {...e} >scr_{e.name}</Li>
-        }
-      })}
+      {dir.filter(e => e.type === 'dir').map((e, i) => (
+        <style.wrapper key={i}><Link to={path['*'] !== '' ? `${path['*']}/${e.name}`: e.name}>dir_{e.name}</Link></style.wrapper>
+      ))}
+      {dir.filter(e => e.type === 'script').map((e, i) => (
+        <Li key={i} path={path} {...e} >scr_{e.name}</Li>
+      ))}
     </style.div>
   )
 };

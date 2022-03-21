@@ -7,14 +7,11 @@ export const border = styled.div`
 
 export const div = styled.div`
   background-color: white;
-  box-shadow: 1px 1px 20px grey;
   border-radius: 5px;
   
   justify-content: center;
 
   width: 500px;
-  margin: auto;
-  margin-top: 150px;
   padding: 60px 50px;
 
 `;
