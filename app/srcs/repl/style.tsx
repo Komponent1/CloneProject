@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
-export const main = styled.div`
-  background: ${({ theme }) => theme.color.basic};
+export const main = styled.section`
+  background: ${({ theme }) => theme.color.background};
 
-  margin-top: 50px;
-  padding: 20px;
+  margin-top: ${({ theme }) => theme.size.longlong};
   flex-grow: 1;
 `;
 export const div = styled.div`

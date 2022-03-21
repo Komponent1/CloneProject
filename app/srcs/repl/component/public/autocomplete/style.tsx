@@ -11,7 +11,7 @@ export const input = styled.input`
   margin: 0;
 
   width: calc(100% - 24px);
-  font-size: ${({ theme }) => theme.fontSize.basic};
+  font-size: ${({ theme }) => theme.size.basic};
   background: none;
   border: none;
   

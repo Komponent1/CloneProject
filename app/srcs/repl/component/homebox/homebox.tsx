@@ -4,9 +4,9 @@ import { Link, useLocation } from 'react-router-dom';
 import { Button } from '../';
 
 type createbox = {
-  config: string[]
+  langs: string[]
 }
-const Createbox: React.FC = ({ config }: createbox) => {
+const Createbox: React.FC = ({ langs }: createbox) => {
   const location = useLocation();
 
   return (
@@ -15,7 +15,7 @@ const Createbox: React.FC = ({ config }: createbox) => {
         <Link state={{ backgroundLocation: location }} to='/repl/creates/c'>
           <Button text='+'/>
         </Link>
-        {config.map((text, i) => (
+        {langs.map((text, i) => (
           <Link key={i} state={{ backgroundLocation: location }} to={`/repl/creates/${text}`}>
             <Button text={text} />
           </Link>

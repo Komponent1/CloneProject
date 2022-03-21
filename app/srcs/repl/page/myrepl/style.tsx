@@ -1,21 +1,17 @@
 import styled from 'styled-components';
 
 export const div = styled.div`
-  margin-left: 15px;
+  padding: ${({ theme }) => theme.size.long};
+  height: 100%;
 
+  background: ${({ theme }) => theme.color.white};
+  
   >.kui_loading {
-    margin-top: calc(50vh - 15px);
+    margin-top: 100vh;
     transform:translateY(-50%);
   }
 `;
-export const button = styled.div`
-  display: inline-block;
 
-  border: 1px solid rgba(172, 172, 172, 0.8);
-  background: rgba(172, 172, 172, 0.4);
-  border-radius: 1px;
-  padding: 0 4px;
-`;
 export const li = styled.div`
   display: flex;
   flex-direction: row;

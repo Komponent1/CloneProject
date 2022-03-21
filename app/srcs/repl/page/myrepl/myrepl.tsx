@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useRequest } from '../../hook';
 import { useParams , Link, useLocation, useNavigate } from 'react-router-dom';
 import * as style from './style';
-import { BtnMenu, Loading } from '../../component';
+import { BtnMenu, Loading, Button } from '../../component';
 
 const Li: React.FC = ({ path, name, lang, create_at, size, favorite }) => {
   const time = (raw: string) => {
@@ -76,10 +76,12 @@ const MyRepl: React.FC = ({ fetcher }) => {
   }, [ path ]);
 
   if (err) return (<div>Error</div>)
-  return (<style.div><Loading /></style.div>)
+  if (loading || !data) return (<style.div><Loading /></style.div>)
   return (
     <style.div>
-      <Link state={{ backgroundLocation: location }} to={`/repl/createf/${path['*']}`}><style.button>New folder</style.button></Link>
+      <Link state={{ backgroundLocation: location }} to={`/repl/createf/${path['*']}`}>
+        <Button text='New Folder' click={() => {}}/>
+      </Link>
       {dir.map((e, i) => {
         switch(e.type) {
           case 'dir':

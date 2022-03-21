@@ -8,7 +8,7 @@ export const button = styled.div`
   color: black;
   overflow: hidden;
 
-  border: 1px solid rgba(1,1,1,0.5);
+  border: 1px solid ${({ theme }) => theme.color.border};
   border-radius: 5px;
   text-align: center;
   transition: background-color 0.3s, border 0.3s;
@@ -21,8 +21,7 @@ export const button = styled.div`
   user-select: none;
 
   &:hover {
-    background-color: rgba(1,1,1, 0.1);  
-    border: 1px solid rgba(1,1,1,1);
+    background-color: rgba(1,1,1, 0.1);
   }
 `;
 export const wave = styled.div<{ opacity: number, top: number, left: number, scale: number, duration: number }>`

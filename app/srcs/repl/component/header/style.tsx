@@ -8,9 +8,9 @@ export const div = styled.div`
   z-index: 10;
 
   width: 100%;
-  padding: 15px;
+  padding: ${({ theme }) => theme.size.base};
 
-  border-bottom: 1px solid ${({ theme }) => theme.color.basic};
+  border-bottom: 1px solid ${({ theme }) => theme.color.border};
   background: white;
 
   

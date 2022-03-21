@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const div = styled.div`
   overflow-y: scroll;
 
-  padding-top: 70px;
+  padding-top: ${({ theme }) => theme.size.longlong};
   width: 240px;
 
   z-index: 11;

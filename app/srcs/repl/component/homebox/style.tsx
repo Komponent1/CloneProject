@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 export const div = styled.div`
-
+  margin: ${({ theme }) => theme.size.long} 0;
 `;
 export const title = styled.div`
   color: black;
   font-weight: 900;
-  font-size: 20px;
+  font-size: ${({ theme }) => theme.size.xxl};
+  margin-bottom: ${({ theme }) => theme.size.xs};
 `;
 export const wrapper = styled.div`
   display: flex;
@@ -14,7 +15,7 @@ export const wrapper = styled.div`
 `;
 export const box = styled.div`
   background: white;
-  border: 1px solid rgba(172, 172, 172, 0.5);
+  border: 1px solid ${({ theme }) => theme.color.border};
   border-radius: 5px;
   padding: 10px;
 `;
@@ -27,9 +28,10 @@ export const langbox = styled(box)`
 `
 export const rebox = styled(box)`
   position: relative;
+  margin-right: ${({ theme }) => theme.size.xxs};
 `;
 export const linker = styled.div`
-  color: blue;
+  color: ${({ theme }) => theme.color.sky};
   font-weight: 900;
   font-size: 15px;
 `
@@ -49,5 +51,6 @@ export const date = styled.div`
   margin-left: 20px;
 `
 export const addon = styled.div`
-  color: blue;
+  color: ${({ theme }) => theme.color.sky};
+  margin-top: ${({ theme }) => theme.size.xxxs};
 `;
