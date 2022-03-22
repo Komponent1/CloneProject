@@ -1,8 +1,27 @@
 import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button, Filterdropdown } from '../../component';
+import { useRequest } from '../../hook';
 import { Modal } from '../';
 import * as style from './style';
 import { langs } from './config';
+
+const useCreateScript = (lang: string) => {
+  const navigate = useNavigate();
+  const [name, setName] = useState<string>('');
+  const { loading, err, fetcher } = useRequest('repl', 'create', {
+    type: 'script', name, paths: [], lang
+  }, true);
+
+  const create = async () => {
+    if (lang === '') return;
+    if (name === '') return;
+    await fetcher();
+    navigate(-1);
+  }
+
+  return { create, name, setName, loading }
+};
 
 const ImportRepo: React.FC = ({ setBox }) => {
   return (
@@ -20,6 +39,7 @@ const ImportRepo: React.FC = ({ setBox }) => {
 const CreateTemplate: React.FC = ({ setBox }) => {
   const [lang, setLang] = useState<string>(langs[0])
   const ref = useRef<React.Ref>(null)
+  const { create, name, setName } = useCreateScript(lang);
 
   return (
     <>
@@ -31,11 +51,14 @@ const CreateTemplate: React.FC = ({ setBox }) => {
             setLang(e)
             ref.current.focus();
           }} />
-        <style.input ref={ref}/>
+        <style.input ref={ref}
+          value={name}
+          onChange={e => setName(e.target.value)}/>
         <style.infobox>
           {lang}
         </style.infobox>
       </style.body>
+      <Button text='create' click={() => create()}/>
     </>
   )
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import server from '../../server/server';
 
 const useRequest = (type: string, api: string, option?: Object, nodirect?: boolean) => {

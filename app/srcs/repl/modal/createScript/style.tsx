@@ -10,9 +10,17 @@ export const div = styled.div`
   padding: 60px 50px;
 
   position: relative;
-  >.kui_button {
+  
+  >.kui_button:nth-child(2) {
     position: absolute;
     top: 60px;
+    right: 50px;
+  }
+  >.kui_button:nth-child(4) {
+    background: ${({ theme }) => theme.color.sky};
+
+    position: absolute;
+    top: auto;
     right: 50px;
   }
 `;

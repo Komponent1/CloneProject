@@ -68,14 +68,14 @@ let datas: Data = {
   }
 }
 
-const create = (type: string, name: string, paths: string[]) => {  
+const create = (type: string, name: string, paths: string[], lang?: string) => {  
   let pos = datas.user.sub;
   for(let i = 0; i < paths.length; i++) {
     pos = (pos.find(e => e.name === paths[i] && e.type === 'dir') as Dir).sub;
   }
   type === 'dir' ? pos.push({ name, type: 'dir', sub: [] }) : pos.push({
     type: 'script',
-    name, lang: 'javascript', size: 52, create_at: Date(), favorite: false
+    name, lang, size: 52, create_at: Date(), favorite: false
   });
 
   return datas.user;
@@ -134,7 +134,7 @@ const repl = async (api: string, option?: any) => {
     case('user'):
       return datas.user;
     case('create'):
-      return create(option.type, option.name, option.paths);
+      return create(option.type, option.name, option.paths, option.lang);
     case('del'):
       return del(option.name, option.paths);
     case('edit'):
