@@ -8,3 +8,4 @@ export { default as Loading } from './loading/loading';
 export { default as Autocomplete } from './public/autocomplete/autocomplete';
 export { default as MenuBtn } from './menuBtn/menuBtn';
 export { default as Rating } from './public/rating/rating'
+export { default as Filterdropdown } from './public/filterdropdown/filterdropdown';

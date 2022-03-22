@@ -1,10 +1,5 @@
 import styled from 'styled-components';
 
-export const border = styled.div`
-  border: 1px solid rgba(172, 172, 172, 0.5);
-  border-radius: 2px;
-`; 
-
 export const div = styled.div`
   background-color: white;
   border-radius: 5px;
@@ -14,42 +9,46 @@ export const div = styled.div`
   width: 500px;
   padding: 60px 50px;
 
-`;
-export const head = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  position: relative;
+  >.kui_button {
+    position: absolute;
+    top: 60px;
+    right: 50px;
+  }
 `;
 export const title = styled.div`
-  font-size: 20px;
+  font-size: ${({ theme }) => theme.size.xl};
   font-weight: 900;
 `;
 export const body = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-export const left = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: ${({ theme }) => theme.size.base};
 
+  margin-top: ${({ theme }) => theme.size.base};
+  
+  >.kui_filterdropdown > input {
+    width: calc(100% - ${({ theme }) => theme.size.base});
+  }
 `;
-export const right = styled.div`
 
-`;
 export const input = styled.input`
   display: block;
-  border: 1px solid rgba(172, 172, 172, 0.5);
-  border-radius: 2px;
 
-  width: 80%;
-  font-size: 20px;
-  margin-bottom: 25px;
-  padding: 10px;
-  color: rgba(10, 10, 10, 0.9);
+  background: ${({ theme }) => theme.color.border};
+  font-size: ${({ theme }) => theme.size.base};
+  padding: 6px;
+  border: none;
+  border-radius: 8px;
 `;
-export const button = styled(border)`
-  font-size: 15px;
-  display: inline-block;
-  padding: 5px 5px;
-  margin-right: 30px;
+export const infobox = styled.div`
+  box-shadow: 0 0 0 1px ${({ theme }) => theme.color.grey} inset;
+  border-radius: ${({ theme }) => theme.size.xxxs};
+  
+  width: calc(100% - ${({ theme }) => theme.size.xs} * 2);
+  height: 50px;
+  padding: ${({ theme }) => theme.size.xs };
 
-  border-radius: 4px;
+  font-size: ${({ theme }) => theme.size.xxl };
+  font-weight: 900;
 `;
