@@ -19,6 +19,8 @@ export const menu = styled.div<{ show: boolean }>`
   top: 2.6rem;
 
   width: 100%;
+  max-height: 200px;
+  overflow-y: scroll;
   background: #E4E5E6;
   
   box-shadow: 0 0 5px grey;

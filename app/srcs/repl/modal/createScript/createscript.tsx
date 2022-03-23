@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Filterdropdown } from '../../component';
+import { Button, Filterdropdown, Loading } from '../../component';
 import { useRequest } from '../../hook';
 import { Modal } from '../';
 import * as style from './style';
@@ -22,16 +22,27 @@ const useCreateScript = (lang: string) => {
 
   return { create, name, setName, loading }
 };
+const useGitRepo = () => {
+  const { loading, err, data } = useRequest('repl', 'getrepo');
+  const [name, setName] = useState<string>();
 
+  return { data, loading }
+}
 const ImportRepo: React.FC = ({ setBox }) => {
+  const { data, loading } = useGitRepo();
+  const [name, setName] = useState<string>();
+
+  if (loading || !data) return <Loading />
   return (
     <>
       <style.title>Import Github</style.title>
       <Button text='Create Template' click={() => setBox(true)}/>
       <style.body>
-      <Filterdropdown list={['c', 'cpp', 'javascript']}/>
+      <Filterdropdown list={data.map(e => e.name)}
+        setOption={(value: string) => setName(value)}/>
         
       </style.body>
+      <Button text='Import' click={() => {}}/>
     </>
   )
 }
@@ -64,7 +75,7 @@ const CreateTemplate: React.FC = ({ setBox }) => {
 }
 
 const CreateScript: React.FC = () => {
-  const [box, setBox] = useState<boolean>(true);
+  const [box, setBox] = useState<boolean>(false);
 
   return (
     <Modal>
