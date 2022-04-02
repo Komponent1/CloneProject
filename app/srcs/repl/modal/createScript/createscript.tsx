@@ -1,44 +1,19 @@
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Filterdropdown, Loading } from '../../component';
-import { useRequest } from '../../hook';
 import { Modal } from '../';
 import * as style from './style';
 import { langs } from './config';
 
-const useCreateScript = (lang: string) => {
-  const navigate = useNavigate();
-  const [name, setName] = useState<string>('');
-  const { loading, err, fetcher } = useRequest('repl', 'create', {
-    type: 'script', name, paths: [], lang
-  }, true);
-
-  const create = async () => {
-    if (lang === '') return;
-    if (name === '') return;
-    await fetcher();
-    navigate(-1);
-  }
-
-  return { create, name, setName, loading }
-};
-const useGitRepo = () => {
-  const { loading, err, data } = useRequest('repl', 'getrepo');
-  const [name, setName] = useState<string>();
-
-  return { data, loading }
-}
 const ImportRepo: React.FC = ({ setBox }) => {
-  const { data, loading } = useGitRepo();
   const [name, setName] = useState<string>();
 
-  if (loading || !data) return <Loading />
   return (
     <>
       <style.title>Import Github</style.title>
       <Button text='Create Template' click={() => setBox(true)}/>
       <style.body>
-      <Filterdropdown list={data.map(e => e.name)}
+      <Filterdropdown list={[] /* data */}
         setOption={(value: string) => setName(value)}/>
         
       </style.body>
@@ -50,7 +25,6 @@ const ImportRepo: React.FC = ({ setBox }) => {
 const CreateTemplate: React.FC = ({ setBox }) => {
   const [lang, setLang] = useState<string>(langs[0])
   const ref = useRef<React.Ref>(null)
-  const { create, name, setName } = useCreateScript(lang);
 
   return (
     <>
@@ -64,12 +38,12 @@ const CreateTemplate: React.FC = ({ setBox }) => {
           }} />
         <style.input ref={ref}
           value={name}
-          onChange={e => setName(e.target.value)}/>
+          onChange={e => {/* change name */}}/>
         <style.infobox>
           {lang}
         </style.infobox>
       </style.body>
-      <Button text='create' click={() => create()}/>
+      <Button text='create' click={() => {/* create diretory */}}/>
     </>
   )
 }

@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as style from './style';
-import { Autocomplete } from '../';
+// import { Autocomplete } from '../';
+import { React as Komp } from '@seolim/komponent';
 
 type Prop = {
   fetcher: Function
 }
-const Searchbar: React.FC = ({ fetcher }) => {
+const Searchbar: React.FC = ({ fetcher }: Prop) => {
+
   return (
     <style.div className='searchbar'>
-      <Autocomplete fetcher={fetcher} />
+      <Komp.AutoComplete fetcher={fetcher} />
     </style.div>
   )
 };

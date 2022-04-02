@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { 
   Routes,
   Route,
@@ -6,7 +6,6 @@ import {
 } from 'react-router-dom';
 import './public/style.css';
 import * as style from './style';
-import server from '../server/server';
 import { OpenBtn, Header, Searchbar } from './component'
 import { useDisplay } from './hook';
 import { Home, MyRepl, Menu } from './page';
@@ -20,10 +19,18 @@ const Root: React.FC = () => {
   const location = useLocation();
   let state = location.state as { backgroundLocation?: Location };
 
+  const fetcher = useCallback(async () => {
+    const data = await fetch('/api/cmd').then(res => res.json());
+    
+    return ({
+      data: data.command
+    })
+  }, [])
+
   return (
     <ThemeProvider theme={theme}>
       <Header>
-        <Searchbar url={''} fetcher={async () => await server.request('repl', 'search')}/>
+        <Searchbar url={''} fetcher={fetcher}/>
       </Header>
       <OpenBtn toggle={toggle}/>
       <style.div>

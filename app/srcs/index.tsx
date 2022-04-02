@@ -6,9 +6,11 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+import { serviceWorker } from './server/server';
 
 import Heroinesnic from './heroinesnic/main';
 import Repl from './repl/root';
+serviceWorker.start({ onunhandledrejection: 'bypass' });
 
 const Main: React.FC = () => (
   <div>
