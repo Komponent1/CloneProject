@@ -63,14 +63,22 @@ const getRepo: Parameters<typeof rest.get>[1] = async (req, res, ctx) => {
     Accept: 'application/vnd.github.v3+json',
     Authorization: `Token ${GIT_TOKEN}`
   }
-  const data = await fetch('https://api.github.com/users/seo2im/repos', {
+  try {
+    const data = await fetch('https://api.github.com/users/seo2im/repos', {
     method: 'GET',
     headers: header
-  }).then(res => res.json());
+    }).then(res => res.json());
+    
+    return res(
+      ctx.status(200),
+      ctx.json(data.slice(0, 3))
+    )
+  } catch (err) {
+    return res(
+      ctx.status(500)
+    )
+  }
 
-  return res(
-    ctx.status(200),
-    ctx.json(data.slice(0, 3))
-  )
+  
 };
 
