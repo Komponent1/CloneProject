@@ -6,10 +6,10 @@ import * as style from './style';
 
 const useCreateFolder = (navigate) => {
   const [loading, setLoading] = useState<boolean>(false);
-  const [success, setSucess] = useState<boolean>(false);
+  const [success, setSucess] = useState<number>(0);
   
   const fetcher = useCallback(async (path: string, name: string) => {
-    const res = await fetch('/api/create', {
+    const res = await fetch('/api/create?type=dir', {
       method: 'POST',
       body: JSON.stringify({ path, name })
     });
@@ -21,12 +21,11 @@ const useCreateFolder = (navigate) => {
     setSucess(await fetcher(path, name));  
   }, [ fetcher ]);
   useEffect(() => {
-    if (success) {
+    if (success !== 0) {
       setLoading(false);
       if (success === 200) {
         navigate(-1);
-      }
-      else alert('err 500');
+      } else alert('err 500');
     }
   }, [ success ]);
 

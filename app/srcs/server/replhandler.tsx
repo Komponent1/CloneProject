@@ -52,8 +52,8 @@ const getFile: Parameters<typeof rest.get>[1] = (req, res, ctx) => {
   );
 };
 const postCreate: Parameters<typeof rest.post>[1] = async (req, res, ctx) => {
-  const { path, name } = JSON.parse(req.body);
-  console.log(req.body)
+  const { path, name, lang } = JSON.parse(req.body);
+  const type = req.url.searchParams.get('type');
   let pos = datas.user.sub;
   if (path['*']) {
     path['*'].split('/').forEach(e => {
@@ -61,9 +61,21 @@ const postCreate: Parameters<typeof rest.post>[1] = async (req, res, ctx) => {
     });
   }
   
-  pos.push({
-    name, type: 'dir', sub: []
-  } as Dir);
+  switch (type) {
+    case 'dir':
+      pos.push({
+        name, type, sub: []
+      })
+      break;
+    case 'script':
+      pos.push({
+        name, type, lang,
+        create_at: Date(),
+        size: 12, favorite: false
+      });
+      break;
+  }
+  
 
   console.log(datas.user)
   
