@@ -1,23 +1,57 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Modal } from '../';
-import { Button } from '../../component';
+import { Button, Loading } from '../../component';
 import * as style from './style';
+
+const useCreateFolder = (navigate) => {
+  const [loading, setLoading] = useState<boolean>(false);
+  const [success, setSucess] = useState<boolean>(false);
+  
+  const fetcher = useCallback(async (path: string, name: string) => {
+    const res = await fetch('/api/create', {
+      method: 'POST',
+      body: JSON.stringify({ path, name })
+    });
+
+    return res.status;
+  }, []);
+  const createDirectory = useCallback(async (path: string, name: string) => {
+    setLoading(true);
+    setSucess(await fetcher(path, name));  
+  }, [ fetcher ]);
+  useEffect(() => {
+    if (success) {
+      setLoading(false);
+      if (success === 200) {
+        navigate(-1);
+      }
+      else alert('err 500');
+    }
+  }, [ success ]);
+
+  return { loading, createDirectory };
+}
 
 const CreateFolder: React.FC = () => {
   const navigate = useNavigate();
-  const [ value, setValue ] = useState<string>('untitled folder');
+  const [ name, setName ] = useState<string>('untitled folder');
+  const path = useParams();
+  const { loading, createDirectory } = useCreateFolder(navigate);
 
+  if (loading) return <Loading />
   return (
     <Modal>
       <style.div>
         <h3>New Folder</h3>
-        <style.input type='text' value={value} onChange={e => {
+        <style.input type='text' value={name} onChange={e => {
           e.stopPropagation();
-          setValue(e.target.value)
+          setName(e.target.value)
         }}/>
         <Button text='cancel' click={() => navigate(-1)}/>
-        <Button text='create' click={() => {}}/>
+        <Button text='create' click={() => {
+          createDirectory(path, name);
+        }}/>
       </style.div>
     </Modal>
   )

@@ -8,7 +8,7 @@ type Script = File & {
   size: number
   favorite: boolean
 }
-type Dir = File & {
+export type Dir = File & {
   sub: Array<Dir | Script>
 }
 type User = {

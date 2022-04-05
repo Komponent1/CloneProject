@@ -1,6 +1,7 @@
 import { rest } from 'msw';
 import { datas } from './repl';
 import { GIT_TOKEN } from '../../.env';
+import { Dir } from './repl';
 
 export function handler() {
   return [
@@ -51,12 +52,24 @@ const getFile: Parameters<typeof rest.get>[1] = (req, res, ctx) => {
   );
 };
 const postCreate: Parameters<typeof rest.post>[1] = async (req, res, ctx) => {
-  const data = req.body;
-  console.log(data);
+  const { path, name } = JSON.parse(req.body);
+  console.log(req.body)
+  let pos = datas.user.sub;
+  if (path['*']) {
+    path['*'].split('/').forEach(e => {
+      pos = (pos.find(dir => dir.name === e) as Dir).sub;
+    });
+  }
   
-  return (
+  pos.push({
+    name, type: 'dir', sub: []
+  } as Dir);
+
+  console.log(datas.user)
+  
+  return res(
     ctx.status(200)
-  )
+  );
 };
 const getRepo: Parameters<typeof rest.get>[1] = async (req, res, ctx) => {
   const header = {
